@@ -1,0 +1,22 @@
+<import html="header.html">
+
+<head css="profile.css">
+
+<div class="container">
+  <div class="gamelist col-sm-4" data-source="boardGames">
+    <h2>My favorite board games <a href="">Edit</a></h2>
+    <div class="content"></div>
+  </div>
+  <div class="gamelist col-sm-4 col-sm-offset-1" data-source="digitalGames">
+    <h2>My favorite digital games <a href="">Edit</a></h2>
+    <div class="content"></div>
+  </div>
+</div>
+
+<script>
+  data = {};
+  data.boardGames = {{boardGames}};
+  data.digitalGames = {{digitalGames}};
+</script>
+
+<import js="profile.js">

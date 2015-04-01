@@ -1,0 +1,16 @@
+<head css="darkly.css teamup.css" js="jquery bootstrap">
+
+<nav class="navbar navbar-top" role="navigation">
+  <div class="container">
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="/">{user.getFullName()}</a></li>
+        <li><a href="/games">Games</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  $("a[href='"+window.location.pathname+"']").addClass("active");
+</script>

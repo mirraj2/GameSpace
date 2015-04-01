@@ -1,0 +1,44 @@
+<import html="header.html">
+
+<head css="editprofile.css">
+
+<div class="container">
+  <div class="editing content col-sm-8">
+    <h1>{user.firstName}, tell us a little about yourself!</h1>
+    
+    <div class="question">
+      <h2>What best describes how you game?</h2>
+      <div class="radio">
+          <label>
+            <input type="radio" name="gamingStyle" value="fun">
+            For me, games are less about competition, and more about the fun.
+          </label>
+        </div>
+        <div class="radio">
+          <label>
+            <input type="radio" name="gamingStyle" value="competitive">
+            I find fun in outplaying my opponents and playing as close to optimally as I can.
+          </label>
+        </div>
+    </div>
+    <script>
+      $("input[value='{{style}}']").prop("checked", true);
+    </script>
+    
+    <div class="question boardgames">
+      <h2>What board/card games do you like to play?</h2>
+      <p>Order them, favorite on top.</p>
+      <textarea placeholder="Enter one per line." rows="10">{boardGames}</textarea>
+    </div>
+
+    <div class="question digitalgames">
+      <h2>What digital games do you like to play?</h2>
+      <p>Order them, favorite on top.</p>
+      <textarea placeholder="Enter one per line." rows="10">{digitalGames}</textarea>
+    </div>
+    
+    <button class="btn btn-info btn-lg">Save Profile</button>
+  </div>
+</div>
+
+<import js="editprofile.js">
