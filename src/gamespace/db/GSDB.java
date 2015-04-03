@@ -1,4 +1,4 @@
-package teamup.db;
+package gamespace.db;
 
 import static jasonlib.util.Functions.map;
 import jasonlib.Json;
@@ -11,15 +11,15 @@ import ez.DB;
 import ez.Row;
 import ez.Table;
 
-public abstract class TeamUpDB {
+public abstract class GSDB {
 
   public static final DB db;
 
   static {
-    db = new DB("localhost", "root", "", "teamup");
+    db = new DB("localhost", "root", "", "gamespace");
   }
 
-  public TeamUpDB() {
+  public GSDB() {
     Table table = getTable();
     if (!db.hasTable(table.name)) {
       db.addTable(table);

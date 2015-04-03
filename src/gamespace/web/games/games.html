@@ -1,0 +1,18 @@
+<import html="header.html">
+<head css="games.css">
+
+<div if="game" class="content container">
+  <h1>{game.name} Players</h1>
+  <div class="players">
+    <a loop="player in players" href="/players/{player.id}" class="player">
+      <img src="{player.picUrl}">
+      <br>
+      <span class="name">{player.getFullName()}</span>
+      <span class="age-sex pull-right">{player.ageSex()}</span>
+    </a>
+  </div>
+</div>
+
+<script>
+$("a[href='/games']").addClass("active");
+</script>

@@ -1,0 +1,34 @@
+.content {
+  background-color: rgba(0, 0, 0, .7);
+  padding-bottom: 10px;
+}
+
+.player {
+  display: inline-block;
+  margin: 8px 8px;
+  cursor: pointer;
+}
+
+.player:hover>.name, .player:hover>.age-sex {
+  color: rgb(255, 206, 99);
+}
+
+.player img {
+  border-radius: 15px;
+  padding: 3px;
+  width: 200px;
+  height: 200px;
+}
+
+.player:hover>img {
+  border: 3px solid orange;
+  padding: 0px;
+}
+
+a.player {
+  color: white;
+}
+
+a.player:hover {
+  text-decoration: none;
+}

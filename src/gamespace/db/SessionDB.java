@@ -1,10 +1,10 @@
-package teamup.db;
+package gamespace.db;
 
 import java.util.UUID;
 import ez.Row;
 import ez.Table;
 
-public class SessionDB extends TeamUpDB {
+public class SessionDB extends GSDB {
 
   @Override
   protected Table getTable() {

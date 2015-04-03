@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<project default="create_run_jar" name="Create Runnable Jar for Project TeamUp">
+<project default="create_run_jar" name="Create Runnable Jar for Project GameSpace">
     <!--this file was created by Eclipse Runnable JAR Export Wizard-->
     <!--ANT 1.7 is required                                        -->
     <target name="create_run_jar">
-        <jar destfile="/Users/jason/workspace/TeamUp/build/server.jar" filesetmanifest="mergewithoutmain">
+        <jar destfile="/Users/jason/workspace/GameSpace/build/server.jar" filesetmanifest="mergewithoutmain">
             <manifest>
-                <attribute name="Main-Class" value="teamup.TeamUpServer"/>
+                <attribute name="Main-Class" value="teamup.GameSpaceServer"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
-            <fileset dir="/Users/jason/workspace/TeamUp/bin"/>
+            <fileset dir="/Users/jason/workspace/GameSpace/bin"/>
             <fileset dir="/Users/jason/workspace/Bowser/bin"/>
             <zipfileset excludes="META-INF/*.SF" src="/Users/jason/workspace/Bowser/lib/simple-5.1.5.jar"/>
             <fileset dir="/Users/jason/workspace/JasonLib/bin"/>

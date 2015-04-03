@@ -1,16 +1,16 @@
-package teamup;
+package gamespace;
 
+import gamespace.web.Authenticator;
+import gamespace.web.games.GamesPage;
+import gamespace.web.login.LoginPage;
+import gamespace.web.profile.ProfilePage;
 import jasonlib.Config;
 import jasonlib.Log;
-import teamup.web.Authenticator;
-import teamup.web.games.GamesPage;
-import teamup.web.login.LoginPage;
-import teamup.web.profile.ProfilePage;
 import bowser.WebServer;
 
-public class TeamUpServer {
+public class GameSpaceServer {
 
-  private final Config config = Config.load("teamup");
+  private final Config config = Config.load("gamespace");
 
   private void run() {
     boolean devMode = config.getBoolean("dev_mode", false);
@@ -19,7 +19,7 @@ public class TeamUpServer {
 
     Log.info("Starting web server on port " + httpPort);
 
-    new WebServer("Team Up", httpPort, devMode)
+    new WebServer("GameSpace.us", httpPort, devMode)
         .shortcut("jquery", "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js")
         .shortcut("bootstrap", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
         .shortcut("bootstrap", "//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.2/js/bootstrap.min.js")
@@ -35,7 +35,7 @@ public class TeamUpServer {
   }
 
   public static void main(String[] args) {
-    new TeamUpServer().run();
+    new GameSpaceServer().run();
   }
 
 }

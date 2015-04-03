@@ -1,15 +1,16 @@
-package teamup.db;
+package gamespace.db;
 
-import static com.google.common.collect.Iterables.transform;
+import static jasonlib.util.Functions.map;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Function;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import ez.Row;
 import ez.Table;
 
-public class AnswerDB extends TeamUpDB {
+public class AnswerDB extends GSDB {
 
   @Override
   protected Table getTable() {
@@ -20,10 +21,15 @@ public class AnswerDB extends TeamUpDB {
         .column("answer", "TEXT");
   }
 
+  public List<Row> getForQuestions(String... questions) {
+    return db.select("SELECT user, answer FROM answer WHERE "
+        + "question IN (" + Joiner.on(",").join(map(questions, quote)) + ")");
+  }
+
   public void setAnswers(long userId, Map<String, String> answers) {
     db.update("DELETE FROM answer WHERE user = ? AND "
         + "question IN (" +
-        Joiner.on(",").join(transform(answers.keySet(), answer -> '"' + answer + '"')) + ")",
+        Joiner.on(",").join(map(answers.keySet(), quote)) + ")",
         userId);
 
     List<Row> rows = Lists.newArrayList();
@@ -35,6 +41,8 @@ public class AnswerDB extends TeamUpDB {
     });
     db.insert("answer", rows);
   }
+
+  private Function<String, String> quote = s -> '"' + s + '"';
 
   public Map<String, String> getAnswers(long userId) {
     Map<String, String> ret = Maps.newHashMap();

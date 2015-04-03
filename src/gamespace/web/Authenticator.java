@@ -1,8 +1,8 @@
-package teamup.web;
+package gamespace.web;
 
-import teamup.db.SessionDB;
-import teamup.db.UserDB;
-import teamup.model.User;
+import gamespace.db.SessionDB;
+import gamespace.db.UserDB;
+import gamespace.model.User;
 import bowser.Request;
 import bowser.RequestHandler;
 import bowser.Response;
