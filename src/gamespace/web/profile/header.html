@@ -1,4 +1,4 @@
-<head css="darkly.css gamespace.css" js="jquery bootstrap">
+<head css="darkly.css gamespace.css" js="jquery bootstrap dateformat gamespace.js">
 
 <nav class="navbar navbar-top" role="navigation">
   <div class="container">
@@ -6,12 +6,12 @@
       <ul class="nav navbar-nav">
         <li><a href="/">{user.getFullName()}</a></li>
         <li><a href="/games">Games</a></li>
-        <li><a href="/chat">Chat</a></li>
+        <li><a href="/events">Events</a></li>
       </ul>
     </div>
   </div>
 </nav>
 
 <script>
-  $("a[href='"+window.location.pathname+"']").addClass("active");
+  $("a[href='" + window.location.pathname + "']").addClass("active");
 </script>

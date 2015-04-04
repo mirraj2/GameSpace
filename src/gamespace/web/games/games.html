@@ -1,6 +1,25 @@
 <import html="header.html">
 <head css="games.css">
 
+<div if="!game" class="container">
+  <div class="row">
+    <div class="content col-sm-4">
+      <h2>Top 10 Board Games</h2>
+      <ol>
+        <li loop="game in boardGames"><a href="/games/{game}">{game}</a></li>
+      </ol>
+    </div>
+    <div class="content col-sm-4 col-sm-offset-1">
+      <h2>Top 10 Digital Games</h2>
+       <ol>
+        <li loop="game in digitalGames"><a href="/games/{game}">{game}</a></li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<br>
+
 <div if="game" class="content container">
   <h1>{game.name} Players</h1>
   <div class="players">
@@ -15,4 +34,7 @@
 
 <script>
 $("a[href='/games']").addClass("active");
+$("li a").each(function(index, a){
+  a.href = a.href.replace(/%20/g, "-");
+});
 </script>

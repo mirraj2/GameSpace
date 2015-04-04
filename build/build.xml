@@ -5,7 +5,7 @@
     <target name="create_run_jar">
         <jar destfile="/Users/jason/workspace/GameSpace/build/server.jar" filesetmanifest="mergewithoutmain">
             <manifest>
-                <attribute name="Main-Class" value="teamup.GameSpaceServer"/>
+                <attribute name="Main-Class" value="gamespace.GameSpaceServer"/>
                 <attribute name="Class-Path" value="."/>
             </manifest>
             <fileset dir="/Users/jason/workspace/GameSpace/bin"/>
@@ -21,6 +21,7 @@
             <zipfileset excludes="META-INF/*.SF" src="/Users/jason/workspace/EZDB/lib/slf4j-api-1.7.2.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="/Users/jason/workspace/EZDB/lib/javassist-3.18.2-GA.jar"/>
             <zipfileset excludes="META-INF/*.SF" src="/Users/jason/workspace/EZDB/lib/slf4j-simple-1.7.2.jar"/>
+            <fileset dir="/Users/jason/workspace/JavaWebsockets/bin"/>
         </jar>
     </target>
 </project>

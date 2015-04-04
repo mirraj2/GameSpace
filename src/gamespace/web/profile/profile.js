@@ -1,14 +1,22 @@
+var data = {
+  aboutMe : "$$(aboutMe)",
+  boardGames : [ $$(boardGames) ],
+  digitalGames : [ $$(digitalGames) ]
+}
+
+if ($$(isMe)) {
+  $("a[href='/']").addClass("active");
+} else {
+  $("h2 a").hide();
+}
+
 $(".gamelist").each(function(index, list) {
   sync($(list));
 });
 syncText($(".about-me"));
 
-if (!isMe) {
-  $("h2 a").hide();
-}
-
 function syncText(component) {
-  var content = component.find(".content").empty();
+  var content = component.find(".dynamic").empty();
   var text = data.aboutMe;
 
   if (!text) {
@@ -29,7 +37,7 @@ function syncText(component) {
 }
 
 function sync(list) {
-  var content = list.find(".content").empty();
+  var content = list.find(".dynamic").empty();
   var games = data[list.data("source")];
 
   if (games.length == 0) {

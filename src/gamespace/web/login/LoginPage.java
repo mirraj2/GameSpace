@@ -41,8 +41,11 @@ public class LoginPage extends Controller {
       if (me.get("birthday") != null) {
         birthday = LocalDate.parse(me.get("birthday"), DateTimeFormatter.ofPattern("MM/dd/yyyy"));
       }
-      user = new User(null, facebookId, me.get("first_name"), me.get("last_name"), me.get("gender"), birthday, picUrl);
+      user = new User(null, facebookId, me.get("email"), me.get("first_name"), me.get("last_name"), me.get("gender"),
+          birthday, picUrl);
       userDB.insert(user);
+    } else if (user.email == null) {
+      userDB.updateEmail(user.id, me.get("email"));
     }
 
     String token = sessionDB.newSession(user.id);

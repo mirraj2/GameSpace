@@ -6541,3 +6541,12 @@ a.list-group-item-danger.active:focus {
 .panel-default > .panel-heading {
   background-color: #464545;
 }
+
+/* Jason's mods*/
+.table tbody tr {
+  cursor: pointer;
+}
+
+.table th {
+  border-bottom: solid rgb(200,200,200) 1px !important;
+}

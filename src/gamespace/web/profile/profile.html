@@ -3,31 +3,22 @@
 
 <div class="container">
   <div class="row">
-    <div class="gamelist col-sm-4" data-source="boardGames">
+    <div class="gamelist content col-sm-4" data-source="boardGames">
       <h2>My favorite board games <a href="">Edit</a></h2>
-      <div class="content"></div>
+      <div class="dynamic"></div>
     </div>
-    <div class="gamelist col-sm-4 col-sm-offset-1" data-source="digitalGames">
+    <div class="gamelist content col-sm-4 col-sm-offset-1" data-source="digitalGames">
       <h2>My favorite digital games <a href="">Edit</a></h2>
-      <div class="content"></div>
+      <div class="dynamic"></div>
     </div>
   </div>
   <br>
   <div class="row">
-    <div class="about-me col-sm-9">
+    <div class="about-me content col-sm-9">
       <h2>About Me <a href="">Edit</a></h2>
-      <div class="content"></div>
+      <div class="dynamic"></div>
     </div>
   </div>
 </div>
-
-<script>
-  data = {};
-  data.aboutMe = "{{aboutMe}}";
-  data.boardGames = [{{boardGames}}];
-  data.digitalGames = [{{digitalGames}}];
-  
-  isMe = {{isMe}};
-</script>
 
 <import js="profile.js">

@@ -1,0 +1,23 @@
+h1 {
+  margin-bottom: 20px;
+}
+
+input, select {
+  display: block;
+}
+
+.form-control {
+  margin-bottom: 10px;
+}
+
+textarea {
+  width: 100%;
+}
+
+input[type='number'] {
+  width: 120px;
+}
+
+.error-msg {
+  margin-left: 10px;
+}

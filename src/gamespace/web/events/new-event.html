@@ -1,0 +1,29 @@
+<import html="header.html">
+
+<head css="new-event.css">
+
+<div class="event container">
+  <div class="content row col-sm-6">
+    <h1>New Event</h1>
+    <div class="event">
+      <input type="text" placeholder="Name" class="form-control" name="name">
+      
+      <input type="date" placeholder="Date" class="inline form-control" name="date" value="{date}"></input>
+      <input type="time" placeholder="Time" class="inline form-control" name="time" value="12:00"></input>
+      <span class="timezone"></span>
+      
+      <input type="number" placeholder="# of People" class="form-control" name="num_people">
+      <select class="form-control" name="privacy">
+        <option value="">Choose Privacy</option>
+        <option loop="privacy in privacies">{privacy}</option>
+      </select>
+      <textarea class="form-control" placeholder="Description" rows="7" name="description"></textarea>
+
+      <button class="btn btn-primary">Create</button>
+      <span class="error-msg"></span>      
+      
+    </div>
+  </div>
+</div>
+
+<import js="new-event.js">
