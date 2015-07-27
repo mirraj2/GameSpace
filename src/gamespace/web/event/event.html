@@ -3,15 +3,22 @@
 <head css="typeahead.css event.css" js="typeahead">
 
 <div class="container">
-  <div class="content col-sm-6">
-    <h1>{event.name}</h1>
-    <h2 class="date">{event.getDateString()}</h2>
-    <p>{event.description}</p>
-    <p loop="person in people"><a href="/players/{person.id}">{person.name}</a> ({person.status})</p>
-    <div class="invite">
-      <div class="error-msg"></div>
-      <input class="typeahead" type="text" placeholder="Invite someone...">
-      <button class="btn btn-success" disabled>Invite</button>
+  <div class="col-sm-6">
+    <div if="myInvite" class="myInvite content col-sm-12">
+      <h2>You were invited by {inviteSender}</h2>
+      <button class="btn btn-success">I'm Going!</button>
+      <button class="btn btn-danger">I can't make it</button>
+    </div>
+    <div class="event content col-sm-12">
+      <h1>{event.name}</h1>
+      <h2 class="date">{event.getDateString()}</h2>
+      <p>{event.description}</p>
+      <div loop="person in people" class="person"><a href="/players/{person.id}">{person.name}</a> {person.status}</div>
+      <div if="allow-invites" class="invite">
+        <div class="error-msg"></div>
+        <input class="typeahead" type="text" placeholder="Invite someone...">
+        <button class="btn btn-success" disabled>Invite</button>
+      </div>
     </div>
   </div>
   <div class="content col-sm-5 col-sm-offset-1">

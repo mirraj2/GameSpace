@@ -12,6 +12,8 @@ public class GameUtils {
       Splitter.on(' ').split("the of a an"));
 
   public static Function<String, String> prettify = game -> {
+    game = game.toLowerCase();
+
     StringBuilder sb = new StringBuilder();
 
     for (String s : Splitter.on(' ').split(game)) {

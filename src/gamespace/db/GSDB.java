@@ -19,8 +19,10 @@ public abstract class GSDB {
     db = new DB("localhost", "root", "", "gamespace");
   }
 
+  protected final Table table;
+
   public GSDB() {
-    Table table = getTable();
+    table = getTable();
     if (!db.hasTable(table.name)) {
       db.addTable(table);
     }

@@ -23,7 +23,11 @@ public class PageNotFoundHandler implements RequestHandler {
       return false;
     }
 
-    String html = template.render(new Context(request));
+    if (!request.getMethod().equalsIgnoreCase("GET")) {
+      return false;
+    }
+
+    String html = template.render(new Context(request, response));
     response.write(html);
 
     Log.warn("404: " + request);

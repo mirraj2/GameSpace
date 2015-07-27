@@ -1,12 +1,15 @@
 package gamespace;
 
+import ez.Mailbox;
 import gamespace.api.UserAPI;
 import gamespace.web.Authenticator;
+import gamespace.web.Redirector;
 import gamespace.web.chat.ChatController;
 import gamespace.web.chat.ChatServer;
 import gamespace.web.event.EventPage;
 import gamespace.web.events.EventsPage;
 import gamespace.web.games.GamesPage;
+import gamespace.web.invite.InvitePage;
 import gamespace.web.login.LoginPage;
 import gamespace.web.notfound.PageNotFoundHandler;
 import gamespace.web.profile.ProfilePage;
@@ -30,6 +33,13 @@ public class GameSpaceServer {
 
     UserAPI userAPI = new UserAPI();
 
+    String mailToken = config.get("mail_token");
+    if (mailToken == null) {
+      System.err.println("Please add 'mail_token' to the config.");
+      return;
+    }
+    Mailbox mailbox = new Mailbox("noreply@gamespace.us", mailToken, "mail.gamespace.us");
+
     WebServer server = new WebServer("GameSpace.us", httpPort, devMode);
     server.shortcut("jquery", "//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js")
         .shortcut("bootstrap", "//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css")
@@ -38,8 +48,10 @@ public class GameSpaceServer {
         .shortcut("buzz", "//cdnjs.cloudflare.com/ajax/libs/buzz/1.1.8/buzz.min.js")
         .shortcut("dateformat", "//cdnjs.cloudflare.com/ajax/libs/jquery-dateFormat/1.0/jquery.dateFormat.min.js")
         .shortcut("typeahead", "https://cdnjs.cloudflare.com/ajax/libs/typeahead.js/0.10.4/typeahead.bundle.min.js")
-        .controller(new LoginPage())
         .add(new Authenticator(userAPI))
+        .controller(new LoginPage())
+        .controller(new InvitePage(userAPI, domain, httpPort, mailbox))
+        .add(new Redirector())
         .controller(new ChatController())
         .controller(new ProfilePage())
         .controller(new GamesPage())

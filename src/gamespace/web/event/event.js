@@ -1,5 +1,12 @@
 $("a[href='/events']").addClass("active");
 
+$(".myInvite .btn-success").click(function() {
+  $.post("/events/$$(event.id)/accept").done(reload).fail(fail);
+});
+$(".myInvite .btn-danger").click(function() {
+  $.post("/events/$$(event.id)/decline").done(reload).fail(fail);
+});
+
 var searchUsers = new Bloodhound({
   datumTokenizer : Bloodhound.tokenizers.obj.whitespace('value'),
   queryTokenizer : Bloodhound.tokenizers.whitespace,
@@ -57,7 +64,7 @@ function submit(data) {
   $(".invite button").prop("disabled", true);
   $(".typeahead").typeahead("val", "");
 
-  $.post("/events/$$(event.id)/invite", data);
+  $.post("/events/$$(event.id)/invite", data).done(reload).fail(fail);
 }
 
 function isEmail(email) {

@@ -35,18 +35,18 @@ public class User {
   }
 
   public String ageSex() {
+    if (birthday == null) {
+      return "";
+    }
+
     String sex = gender;
     if (sex.equals("male")) {
       sex = "M";
     } else if (sex.equals("female")) {
       sex = "F";
     }
-    Integer years = birthday == null ? null : Period.between(birthday, LocalDate.now()).getYears();
-    if (years == null) {
-      return "?? " + sex;
-    } else {
-      return years + " " + sex;
-    }
+    Integer years = Period.between(birthday, LocalDate.now()).getYears();
+    return years + " " + sex;
   }
 
   @Override

@@ -1,10 +1,13 @@
+var redirectLocation = "/";
+var loginPath = "/login";
+
 function statusChangeCallback(response) {
   console.log(response);
   var status = response.status;
 
   if (status == "connected") {
-    $.post("/login", response.authResponse).done(function() {
-      location = "/";
+    $.post(loginPath, response.authResponse).done(function() {
+      location = redirectLocation;
     });
   }
 }

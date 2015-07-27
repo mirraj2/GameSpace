@@ -15,6 +15,10 @@ public class UserAPI {
     return cache.computeIfAbsent(id, key -> userDB.get(key));
   }
 
+  public User getByEmail(String email) {
+    return userDB.getByEmail(email);
+  }
+
   public List<User> getAll() {
     return userDB.getAll();
   }

@@ -1,0 +1,19 @@
+<head js="jquery gamespace.js login.js" css="darkly.css login.css">
+
+<div class="panel panel-default col-sm-5 col-sm-offset-6">
+  <div class="panel-body">
+    <h1>{event.name}</h1>
+    <h2>{friend} invited you to join this event.</h2>
+    <h4>Once you login, you'll be able to respond to the invite.</h4>
+    <!-- consider adding user_friends & user_birthday -->
+    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();" data-size="xlarge">
+      Facebook Login
+    </fb:login-button>
+  </div>
+</div>
+
+<script>
+  redirectLocation = "$$(redirectLocation)";
+  loginPath = "$$(loginPath)";
+</script>
+

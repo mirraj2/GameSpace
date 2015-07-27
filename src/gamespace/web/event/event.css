@@ -2,11 +2,32 @@ h2 {
   font-size: 26px;
 }
 
-h2.date{
+h2.date {
   margin-bottom: 20px;
 }
 
-.invite{
+.invite {
   margin-top: 30px;
 }
 
+p {
+  margin-bottom: 15px;
+}
+
+.person {
+  margin-bottom: 2px;
+}
+
+.person a {
+  min-width: 86px;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.myInvite{
+  margin-bottom: 20px;
+}
+
+.myInvite .btn-success{
+  margin-right: 5px;
+}

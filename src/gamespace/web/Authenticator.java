@@ -29,12 +29,10 @@ public class Authenticator implements RequestHandler {
       if (userId != null) {
         User user = userAPI.get(userId);
         request.put("user", user);
-        return false;
       }
     }
 
-    response.redirect("/login");
-    return true;
+    return false;
   }
 
 }

@@ -1,6 +1,7 @@
 package gamespace.web.login;
 
 import gamespace.FacebookAPI;
+import gamespace.db.InviteDB;
 import gamespace.db.SessionDB;
 import gamespace.db.UserDB;
 import gamespace.model.User;
@@ -16,6 +17,7 @@ public class LoginPage extends Controller {
 
   private final UserDB userDB = new UserDB();
   private final SessionDB sessionDB = new SessionDB();
+  private final InviteDB inviteDB = new InviteDB();
 
   @Override
   public void init() {
@@ -46,6 +48,11 @@ public class LoginPage extends Controller {
       userDB.insert(user);
     } else if (user.email == null) {
       userDB.updateEmail(user.id, me.get("email"));
+    }
+
+    String inviteCode = request.param("code");
+    if (inviteCode != null) {
+      inviteDB.updateTargetUserForCode(inviteCode, user.id);
     }
 
     String token = sessionDB.newSession(user.id);

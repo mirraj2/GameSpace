@@ -54,14 +54,5 @@ public class FacebookAPI {
 
     return IO.fromURL(url).toJson();
   }
-  
-  public static void main(String[] args) {
-    FacebookAPI api = new FacebookAPI(
-        "CAACEdEose0cBACapS76btSm2AIbelpHKVfpWdXsPHgN72e133eEzFjl9ycprNCz0AvsHmGz0RNtZC4Sz5V9ZAAAyv9CLPyzabrm3p24"
-            + "ZC5PmrsymbgMfOIVpBl8dM8G1dCPNZAwknqMRMLaWqrCogZCYIpOn9DZAj7WuZCkBvLHZAfLb5aTiueZCqQZCZAM6WNQ3Wh0zOQSXIS"
-            + "LZAbgyLuhZBdzOA16zq6w8pUW8ZD");
-
-    Log.debug(api.getFriends());
-  }
 
 }

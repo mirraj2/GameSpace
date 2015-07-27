@@ -32,6 +32,11 @@ public class UserDB extends GSDB {
     return row == null ? null : deserializer.apply(row);
   }
 
+  public User getByEmail(String email) {
+    Row row = db.selectSingleRow("SELECT * FROM user WHERE email = ?", email);
+    return row == null ? null : deserializer.apply(row);
+  }
+
   public List<User> getAll() {
     List<Row> rows = db.select("SELECT * FROM user");
     return map(rows, deserializer);

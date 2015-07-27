@@ -19,7 +19,7 @@ function syncText(component) {
   var content = component.find(".dynamic").empty();
   var text = data.aboutMe;
 
-  if (!text) {
+  if (!text && !$$(isMe)) {
     component.hide();
     return;
   }
@@ -41,7 +41,7 @@ function sync(list) {
   var games = data[list.data("source")];
 
   if (games.length == 0) {
-    if (isMe) {
+    if ($$(isMe)) {
       list.addClass("editing");
     }
   }
